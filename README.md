@@ -26,10 +26,10 @@ Pastikan perangkat sudah memiliki:
    cd finance_app
 
 2. Buat file environment:
-   cp .env.example .env
+   ```cp .env.example .env
 
 3. Jalankan Aplikasi:
-   docker compose up --build
+   ```docker compose up --build
 
 4. Untuk menghentikan aplikasi:
-   docker compose down
+  ``` docker compose down
