@@ -1,0 +1,41 @@
+services:
+  api:
+    build: ./backend
+    container_name: nexus-api
+    ports:
+      - "8001:8000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: finance123
+      DB_NAME: finance_app
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: ./frontend
+    container_name: nexus-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+  db:
+    image: postgres:15
+    container_name: nexus-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: finance123
+      POSTGRES_DB: finance_app
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5

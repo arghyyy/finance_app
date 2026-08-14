@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nexus Finance Design System — Base styles */
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@layer components {
+  /* Cards */
+  .card {
+    @apply bg-surface-container-lowest rounded-lg p-6 border border-outline-variant/30 shadow-[0px_4px_20px_rgba(15,23,42,0.08)];
+  }
+  .card-hover {
+    @apply card cursor-pointer transition-shadow hover:shadow-[0px_8px_30px_rgba(15,23,42,0.12)];
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-primary-container text-white font-medium text-sm transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-outline-variant text-on-surface font-medium text-sm bg-transparent transition-all hover:bg-surface-container active:scale-[0.98];
+  }
+  .btn-success {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-secondary text-white font-medium text-sm transition-all hover:opacity-90;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-error text-on-error font-medium text-sm transition-all hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-3 py-2 rounded-lg text-on-surface-variant text-sm font-medium transition-all hover:bg-surface-container;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-success {
+    @apply badge bg-secondary/10 text-secondary;
+  }
+  .badge-warning {
+    @apply badge bg-warning/10 text-warning;
+  }
+  .badge-danger {
+    @apply badge bg-error/10 text-error;
+  }
+  .badge-neutral {
+    @apply badge bg-surface-container-high text-on-surface-variant;
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-bright text-on-surface text-sm placeholder:text-on-surface-variant/50
+           focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/30 transition-colors;
+  }
+  .input-error {
+    @apply border-error focus:border-error focus:ring-error/30;
+  }
+  label.label {
+    @apply block text-sm font-medium text-on-surface mb-1.5;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    @apply w-full h-2 rounded-full bg-surface-container-high overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  /* Dividers */
+  .divider {
+    @apply border-t border-outline-variant;
+  }
+}
+
+/* Safe area for Capacitor */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Tabular numbers for financial data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c6c6cd;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #76777d;
+}

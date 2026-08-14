@@ -1,0 +1,36 @@
+# Environment dan rahasia
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+
+# Log
+*.log
+logs/
+
+# Sistem operasi
+.DS_Store
+Thumbs.db
+
+# Database lokal
+*.sqlite
+*.sqlite3
